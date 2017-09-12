@@ -1,4 +1,4 @@
-FROM ctarwater/armhf-alpine-rpi-base
+FROM aarch64/alpine
 
 # Create our user and setup Alpine for building APKs
 RUN apk --no-cache add alpine-sdk coreutils && \
