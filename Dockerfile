@@ -12,15 +12,10 @@ WORKDIR /home/builder
 
 RUN abuild-keygen -a -i -n
 
-RUN git clone --single-branch https://github.com/andyshinn/alpine-pkg-glibc upstream && \
+RUN git clone --single-branch https://github.com/athalonis/alpine-pkg-glibc.git upstream && \
     mkdir packages && \
     chown -R 1000 upstream packages && \
     cd upstream && \
-    sed -i 's/arch=.*/arch="aarch64"/g' APKBUILD && \
-    sed -i 's/ld-linux-x86-64.so.2/ld-linux-aarch64.so.1/g' APKBUILD && \
-    sed -i 's/^source=.*/source="https:\/\/github.com\/aarch64-docker-library\/glibc\/releases\/download\/2.22\/glibc-bin.tar.gz/' APKBUILD && \
-    export MD5=2a9d468836dd45918d679ee53ae23542 && \
-    sed -i "s/md5sums=\".*/md5sums=\"${MD5} glibc-bin.tar.gz/" APKBUILD && \
     abuild -r
 
 #sudo apk add /home/builder/packages/builder/armhf/*.apk
