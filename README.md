@@ -1,5 +1,5 @@
 ## WHAT
-Docker container to build an Alpine glibc package for the aarch65
+Docker container to build an Alpine glibc package for the aarch64
 
 ## BUILD
 Build the container
@@ -7,6 +7,7 @@ Build the container
 
 ## USE
 Start the container and mount your local directory
+
 `docker run -v $PWD:/home/volume -it --rm docker-alpine-rpi-glibc-builder /bin/ash`
 
 Copy the .apk files out of the container (and pubkey)
