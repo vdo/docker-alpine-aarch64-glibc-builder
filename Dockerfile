@@ -12,10 +12,9 @@ WORKDIR /home/builder
 
 RUN abuild-keygen -a -i -n
 
-RUN git clone --single-branch https://github.com/athalonis/alpine-pkg-glibc.git upstream && \
+RUN git clone --single-branch https://github.com/vdo/alpine-pkg-glibc.git upstream && \
     mkdir packages && \
     chown -R 1000 upstream packages && \
     cd upstream && \
     abuild -r
 
-#sudo apk add /home/builder/packages/builder/armhf/*.apk
